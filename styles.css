@@ -1,0 +1,1313 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #08082b;
+  color: #fff;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #08082b;
+  padding: 15px 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto; /* Center horizontally */
+  max-width: 1600px; /* Limit the width */
+  width: 49%; /* Allow dynamic adjustment */
+  border-radius: 50px;
+  border: 4px solid #00E5FF;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  animation: slideIn 1s ease;
+}
+
+/* Navbar Logo */
+.navbar .logo a {
+  font-size: 24px;
+  color: #00E5FF;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar .logo a:hover {
+  color: #0095CC;
+}
+
+/* Navbar Menu */
+.menu {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li {
+  transition: transform 0.3s ease;
+}
+
+.menu li:hover {
+  transform: scale(1.1);
+}
+
+.menu li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 12px 16px;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #00E5FF;
+  transform: translateY(-3px);
+}
+
+/* Particles container inside the navbar */
+.navbar .navbar-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Prevent particles from interfering with user interactions */
+  z-index: -1; /* Ensure particles stay behind content */
+  overflow: hidden; /* Keep particles inside the navbar */
+}
+
+/* Individual particles */
+.navbar .navbar-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 8s infinite;
+}
+
+/* Animation for floating particles inside the navbar */
+@keyframes floatParticles {
+  0% {
+    transform: translateY(120px) translateX(120px) scale(1);
+  }
+  25% {
+    transform: translateY(-30px) translateX(130px) scale(1.5);
+  }
+  50% {
+    transform: translateY(140px) translateX(-40px) scale(1);
+  }
+  75% {
+    transform: translateY(-20px) translateX(120px) scale(1.5);
+  }
+  100% {
+    transform: translateY(130px) translateX(-20px) scale(1);
+  }
+}
+
+/* Sticky Navbar (when scroll down) */
+.sticky {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto; /* Keep it centered */
+  background-color: #08082b;
+  padding: 15px 25px;
+  max-width: 1600px;
+  width: 49%;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Animation for navbar slide-in */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .menu {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .menu li {
+    margin: 20px 0;
+  }
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px;
+  background-image: url('image/4.png'); /* Add your background image here */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 35, 0.7); /* Dark overlay to improve text readability */
+  z-index: 1;
+}
+
+.hero-text {
+  max-width: 50%;
+  z-index: 2; /* Ensures text is above the overlay */
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.name {
+  color: #00E5FF;
+}
+
+.highlight {
+  color: #00E5FF;
+  font-weight: bold;
+}
+
+.hero-text p {
+  margin: 30px 0;
+  font-size: 28px;
+  color: #ddd;
+}
+
+.social-links {
+  margin: 30px 0;
+  display: flex;
+  gap: 25px;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1);
+}
+
+.btn {
+  position: relative;
+  text-decoration: none;
+  background-color: #111;
+  color: #fdfdff;
+  border: 3px solid #00E5FF;
+  border-radius: 35px;
+  padding: 14px 24px;
+  font-weight: bold;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #111;
+  background: #0A0A23;
+  border: 5px solid #00E5FF;
+  border-radius: 35px;
+  padding: 15px;
+
+}
+
+
+/* Hero Image */
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Ensures the image is above the overlay */
+}
+
+.image-circle {
+  width: 400px;
+  height: 400px;
+  top: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00E5FF, #111); /* Gradient for border effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.image-circle img {
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-circle:hover {
+  transform: scale(1.08); /* Slight zoom effect */
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.8);
+  border-radius: 50%;
+
+}
+
+.image-circle img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.8);
+  border-radius: 50%;
+}
+
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0A0A23;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+/* About Section Styling */
+.about-section {
+    background-color: #0A0A23;
+    padding: 80px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: auto;
+    align-items: flex-start;
+    gap: 90px;
+  }
+  
+  .about-content {
+    flex: 2;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    color: #00E5FF;
+    margin-bottom: 40px;
+    text-align: left;
+    border-bottom: 3px solid #00E5FF;
+    display: inline-block;
+    width: 28%; 
+    
+  }
+  
+  .about-cards {
+    display: grid;
+    padding: 30px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-card {
+    background: #111;
+    border: 3px solid #00E5FF;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .about-card h3 {
+    font-size: 22px;
+    color: #00E5FF;
+    margin-bottom: 40px;
+  }
+  
+  .about-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.5);
+  }
+
+  /* Particle Animation */
+  @keyframes floatParticles {
+    0% {
+      transform: translateY(220px) translateX(120px) scale(1);
+    }
+    25% {
+      transform: translateY(220px) translateX(120px) scale(1.5);
+    }
+    50% {
+      transform: translateY(120px) translateX(-10px) scale(1);
+    }
+    75% {
+      transform: translateY(110px) translateX(10px) scale(1.5);
+    }
+    100% {
+      transform: translateY(220px) translateX(120px) scale(1);
+    }
+  }
+
+/* Particle Styling */
+.about-card .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Prevent particles from interfering with user interactions */
+  z-index: -1; /* Keep particles behind the card content */
+  overflow: hidden;
+}
+
+.about-card .particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 8s infinite linear;
+}
+ 
+
+/* About Image */
+.about-image {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px; /* Adds space above the image */
+}
+
+/* Image Styling */
+.about-image img {
+  width: 450px;
+  height: 550px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #111;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  border: 5px solid #00E5FF;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.about-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.8);
+}
+
+/* CSS for the Experience Section */
+
+/* Container to center the content */
+.container {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Experience Section */
+.experience-section {
+  background-color: #0A0A23;
+  color: #ffffff;
+  padding: 90px 50px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideIn 1s ease;
+}
+
+/* Section Title */
+h2 {
+  font-size: 36px;
+  color: #00E5FF;
+  margin-bottom: 90px;
+  border-bottom: 3px solid #00E5FF;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Experience Cards Container */
+.experience-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 70px;
+  justify-content: center;
+  gap: 90px;
+}
+
+/* Card Styling */
+.card {
+  width: 300px;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 15px;
+  border: 3px solid #00E5FF;
+  box-shadow: 0px 8px 15px rgba(0, 229, 255, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  animation: slideInUp 1.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 10px 10px 10px 10px rgba(0, 229, 255, 0.5); 
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Prevent particles from interfering with user interactions */
+  z-index: -1; /* Ensure particles stay behind content */
+  overflow: hidden; /* Keep particles inside the box */
+}
+
+.card .particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 8s infinite linear;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(220px) translateX(120px) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) translateX(120px) scale(1.5);
+  }
+  50% {
+    transform: translateY(120px) translateX(-10px) scale(1);
+  }
+  75% {
+    transform: translateY(110px) translateX(10px) scale(1.5);
+  }
+  100% {
+    transform: translateY(-20px) translateX(120px) scale(1);
+  }
+}
+
+/* Card Content */
+.card-content h3 {
+  font-size: 1.8rem;
+  color: #00E5FF;
+  margin-bottom: 15px;
+  font-weight: 600;
+
+  transition: color 0.3s ;
+}
+
+.card-content .company a {
+  font-size: 1.1rem;
+  color: #00E5FF;
+  text-decoration: none;
+}
+
+.card-content .company a:hover {
+  text-decoration: underline;
+}
+
+.card-content .duration {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.card-content ul {
+  list-style-type: none;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.card-content ul li {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.card-content ul li::before {
+  content: "•";
+  color: #00E5FF;
+  position: absolute;
+  left: 30px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.card-content ul .highlight {
+  background-color: #00E5FF;
+  color: #08082b;
+  font-weight: bold;
+  padding: 50px;
+  border-radius: 5px;
+  animation: highlightText 1s ease-in-out infinite alternate;
+}
+
+/* Animation for highlighting text */
+@keyframes highlightText {
+  0% {
+    background-color: #00E5FF;
+    color: #08082b;
+  }
+  100% {
+    background-color: #08082b;
+    color: #00E5FF;
+  }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-up Animation for Experience Cards */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* Skills Section Styling */
+.container {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.skills-section {
+  background-color: #08082b;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.skills-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-section h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #00E5FF;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 60px; /* Spacing between skill boxes */
+  justify-content: center;
+  align-items: stretch;
+}
+
+.skill-box {
+  position: relative;
+  background-color: #111;
+  border: 3px solid #00E5FF;
+  border-radius: 40px;
+  padding: 30px;
+  text-align: left;
+  height: 450px;
+  width: 320px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden; /* Ensure particles stay inside the box */
+  opacity: 0; /* Hidden initially for scroll animation */
+  transform: translateY(20px); /* Start from below */
+}
+
+.skill-box:hover {
+  transform: translateY(-10px) scale(1.05); /* Scale up effect */
+  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.5);
+}
+
+.skill-box .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Prevent particles from interfering with user interactions */
+  z-index: -1; /* Ensure particles stay behind content */
+  overflow: hidden; /* Keep particles inside the box */
+}
+
+.skill-box .particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 10s infinite linear;
+}
+
+/* Updated Keyframes for Full Movement */
+@keyframes floatParticles {
+  0% {
+    transform: translate(0, 0); /* Start at top-left corner */
+  }
+  25% {
+    transform: translate(100%, 0); /* Move to top-right corner */
+  }
+  50% {
+    transform: translate(100%, 100%); /* Move to bottom-right corner */
+  }
+  75% {
+    transform: translate(0, 100%); /* Move to bottom-left corner */
+  }
+  100% {
+    transform: translate(0, 0); /* Return to top-left corner */
+  }
+}
+
+.skill-box h3 {
+  font-size: 26px;
+  color: #00E5FF;
+  padding-left: 0px;
+  margin-bottom: 20px;
+}
+
+.skill-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-box ul li {
+  font-size: 18px;
+  line-height: 2;
+  color: #ddd;
+  position: relative;
+  
+}
+
+.skill-box ul li i {
+  color: #00E5FF; /* Base color */
+  font-size: 20px;
+  margin-right: 20px;
+  line-height: 2;
+  text-shadow: 0 0 5px #00E5FF, 0 0 10px #00E5FF, 0 0 20px #00FFFF;
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+
+}
+
+.skill-box:hover ul li i {
+  text-shadow: 0 0 10px #00FFFF, 0 0 20px #39FF14, 0 0 30px #FFD700;
+  transform: scale(1.2); /* Slight enlargement on hover */
+
+
+}
+
+
+/* Projects Section Styling */
+.container {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.projects-section {
+  background-color: #08082b;
+  color: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #00E5FF;
+  margin-bottom: 40px;
+  border-bottom: 4px solid #00E5FF;
+  display: inline-block;
+  width: auto;  
+  text-align: center;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 60px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.project {
+  position: relative;
+  width: 340px;
+  height: 480px;
+  overflow: hidden;
+  /* border-radius: 15px; */
+  background-color: #111;
+  border: 3px solid #00E5FF;
+  border-radius: 30px;
+  box-shadow: 0px 8px 15px rgba(0, 229, 255, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  animation: slideInUp 1.5s ease;
+
+}
+
+.project:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 10px 10px 10px 10px rgba(0, 229, 255, 0.5); 
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card img {
+  width: 100%;
+  height: 310px;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.project:hover img {
+  transform: scale(1.1);
+}
+
+/* For each project card, ensure particles only affect the remaining area (below the image) */
+.project .particles {
+  position: absolute;
+  top: 310px; /* Start below the image */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; 
+  z-index: -1; /* Ensure particles stay behind content */
+  overflow: hidden; /* Keep particles inside the box */
+}
+
+.project .particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 8s infinite linear;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(220px) translateX(120px) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) translateX(120px) scale(1.5);
+  }
+  50% {
+    transform: translateY(120px) translateX(-10px) scale(1);
+  }
+  75% {
+    transform: translateY(110px) translateX(10px) scale(1.5);
+  }
+  100% {
+    transform: translateY(-20px) translateX(120px) scale(1);
+  }
+}
+
+
+.project-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.project-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.project-info h3:hover {
+  color: #00E5FF;
+}
+
+.github-button {
+  background-color: #00E5FF;
+  color: #08082b;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 5px 10px rgba(0, 229, 255, 0.2);
+}
+
+.github-button:hover {
+  background-color: #0095CC;
+  border: 3px solid #111;
+  border-radius: 30px;
+  transform: translateY(-3px);
+}
+
+
+
+/* General Contact Section Styling */
+.contact-section {
+  background-color: #0a0a23;
+  padding: 50px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.contact-section h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  border-bottom: 4px solid #00E5FF;
+  display: inline-block;
+  width: auto;
+  color: #00e5ff;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Contact Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: #111;
+  padding: 70px;
+  border: 3px solid #00E5FF;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(31, 28, 28, 0.3);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Form Styling */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%; /* Adjusted to use full width */
+  align-items: center;
+  position: relative; /* Ensure particles are within the form */
+}
+
+/* Particle Container */
+.contact-form .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Prevent particles from interfering with user interactions */
+  z-index: -1; /* Ensure particles stay behind content */
+  overflow: hidden; /* Keep particles inside the form */
+}
+
+/* Individual Particle Styling */
+.contact-form .particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #00E5FF;
+  border-radius: 50%;
+  animation: floatParticles 8s infinite;
+}
+
+/* Floating Particles Animation */
+@keyframes floatParticles {
+  0% {
+    transform: translateY(220px) translateX(120px) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) translateX(120px) scale(1.5);
+  }
+  50% {
+    transform: translateY(120px) translateX(-10px) scale(1);
+  }
+  75% {
+    transform: translateY(110px) translateX(10px) scale(1.5);
+  }
+  100% {
+    transform: translateY(-20px) translateX(120px) scale(1);
+  }
+}
+
+/* Form Input Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group label {
+  font-size: 18px;
+  color: #00e5ff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #2e2e52;
+  border: 1px solid #444;
+  border-radius: 15px;
+  color: #ddd;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.4s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00e5ff;
+  outline: none;
+  background-color: #23233d;
+  transform: translateY(-5px); /* Smooth lift effect */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Center the 'Your Message' Textarea */
+.contact-form .form-group textarea {
+  grid-column: span 2; /* Adjusted to span both columns */
+  text-align: center;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+  min-width: 80px;
+  max-width: 220px;
+  padding: 12px;
+  background-color: #00e5ff;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #0a0a23;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  margin-top: 30px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background-color: #0091cc;
+  transform: translateY(-4px); /* Hover effect */
+}
+
+.submit-btn:active {
+  transform: translateY(2px); /* Active press effect */
+}
+
+/* Form Response Animation */
+.contact-container .form-response {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #00e5ff;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+/* General Fade In Up Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr; /* Stack the form inputs vertically */
+    width: 100%;
+    gap: 20px;
+  }
+
+  .submit-btn {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+  
+/* Connect with Me Section with Line */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #08082b;
+  color: white;
+  overflow: hidden;
+}
+
+.connect-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.social-media-card {
+  background-color: #08082b;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  max-width: auto;
+  z-index: 20;
+  animation: slideUp 1.5s ease;
+  position: relative;
+  backdrop-filter: blur(10px); /* Add subtle blur for a modern effect */
+}
+
+h2 {
+  font-size: 36px;
+  color: #00E5FF;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #00E5FF;
+  display: inline-block;
+  text-transform: uppercase;
+  animation: fadeIn 2s ease;
+}
+
+p {
+  color: #ddd;
+  font-size: 16px;
+  margin-bottom: 30px;
+  opacity: 0.8;
+  animation: fadeIn 2s ease 0.5s forwards;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 2rem; /* Bigger icon size */
+  color: #00E5FF;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgba(0, 229, 255, 0.1);
+}
+
+.social-icon:hover {
+  color: #0095CC;
+  transform: scale(1.2);
+  background-color: rgba(0, 229, 255, 0.3);
+}
+
+.social-icon i {
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover Effect on Icon */
+.social-icon:hover i {
+  text-shadow: 0 0 15px #00E5FF, 0 0 25px #00E5FF, 0 0 35px #00FFFF;
+  transform: rotate(360deg); /* Rotate icon on hover */
+}
+
+/* Sound Wave Animation */
+.sound-wave {
+  position: absolute;
+  bottom: 10px;
+  left: 100%;
+  width: 1800px;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(255, 0, 0, 1) 5%, rgba(0, 255, 255, 1) 100%);
+  transform: translateX(-50%);
+  animation: wave 2s infinite linear;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-50%) scaleX(0.5);
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    transform: translateX(-50%) scaleX(0.5);
+  }
+}
+
+/* Animation for the card */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-In for Text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Background animation */
+@keyframes lineMotion {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(90deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+.line {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  width: auto;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 255, 1) 100%);
+  transform-origin: center;
+  animation: lineMotion 5s infinite linear;
+  z-index: 1;
+}
+
+.line2 {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  width: auto;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(255, 0, 255, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  transform-origin: center;
+  animation: lineMotion 7s infinite linear;
+  z-index: 0;
+}
+
+  
+  
